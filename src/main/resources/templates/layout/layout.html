@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:replace="fragments/config :: configFragment"></head>
+
+    <header th:replace="fragments/header :: headerFragment"></header>
+
+    <div layout:fragment="content" class="mt-4"></div>
+
+    <footer th:replace="fragments/footer:: footerFragment"></footer>
+
+</html>

@@ -1,13 +1,12 @@
-package com.matsul.soju;
+package com.wonhui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SojuApplication {
+public class BlogApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SojuApplication.class, args);
+        SpringApplication.run(BlogApplication.class, args);
     }
-
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+
+<div layout:fragment="content">
+    <div>
+        <form th:action="@{/v1/boards}" th:object="${board}" th:method="${board.id} != null ? PUT : POST"
+              modelAttribute="board">
+            <input type="hidden" th:field="*{id}">
+            <input type="text" th:field="*{subject}">
+            <input type="text" th:field="*{content}">
+            <input type="submit">
+        </form>
+    </div>
+</div>
+
+</html>
