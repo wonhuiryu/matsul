@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>워니의 기술 블로그</title>
+
+    <!-- 공통으로 쓰이는 css파일을넣는다.-->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" th:href="@{/css/shop-item.css}"/>
+    <!-- 사용자 CSS 영역이 들어감 안되는데?-->
+    <th:block layout:fragment="css">
+    </th:block>
+
+    <!-- 공통으로 쓰이는 css파일을넣는다.-->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- 사용자 스크립트 영역이 들어감 안되는데?-->
+    <th:block layout:fragment="script">
+    </th:block>
+</head>
+
+</html>

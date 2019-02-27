@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+
+<div layout:fragment="content">
+    <div class="col-sm-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <Td>ID</Td>
+                <Td>제목</Td>
+                <Td>내용</Td>
+                <Td>작성일</Td>
+                <Td>수정일</Td>
+                <td>부가기능</td>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="board : ${boards}">
+                <tr>
+                    <td th:text="${board.id}"></td>
+                    <td th:text="${board.subject}"></td>
+                    <td th:text="${board.content}"></td>
+                    <td th:text="${board.createdAt}"></td>
+                    <td th:text="${board.modifiedAt}"></td>
+                    <td>
+                        <a class="ACTION_ASYNC" th:value="${board.id}" data-method="DELETE"
+                           data-url="/v1/boards/">삭제</a>
+                        <a class="ACTION_GET" th:value="${board.id}" data-url="/v1/boards?id=">수정</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+<!--    <div class="col-sm-12">
+        &lt;!&ndash; Pagination Bar &ndash;&gt;
+        <div th:replace="fragments/pager :: paginationbar"></div>
+    </div>-->
+    <div class="col-sm-12">
+        <a class="ACTION_GET" th:value="write" data-url="/v1/boards">글쓰기</a>
+    </div>
+
+    <!--페이지당 갯수 선택-->
+    <script th:src="@{/js/common.js}"></script>
+</div>
+</html>
