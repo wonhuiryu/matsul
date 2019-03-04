@@ -12,9 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "user")
 public class User extends BaseEntity{
 
-    @Id
-    private String id;
+/*    @Id
+    private String id;*/
 
+    @Id
     private String email;
     private String password;
+
+    private String signUpKey;
 }
