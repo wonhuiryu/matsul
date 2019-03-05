@@ -12,7 +12,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
-import java.util.Optional;
 import java.util.Properties;
 
 @Service
@@ -32,7 +31,7 @@ public class UserService {
         final String password = "1718toRl!";
 
         //server ip:port(추후)
-        final String server = "localhost:8080/users/email/";
+        final String server = "localhost:8080/v1/users/signUp/";
 
         //CRUDRepository 추후 API 제공 안될 시, 직접 업데이트문 작성
 /*        Optional<User> userOptional = userRepository.findById(user.getEmail());
@@ -75,7 +74,7 @@ public class UserService {
                     +signUpKey
                     +"\"></a>", "text/html; charset=utf-8");*/
 
-            String message1 = "<a href=\"localhost:8080/users/email/"+signUpKey+"\">Join Us!</a>";
+            String message1 = "<a href=\""+server+signUpKey+"\">Join Us!</a>";
             message.setContent(message1, "text/html; charset=utf-8");
 
             Transport.send(message);
