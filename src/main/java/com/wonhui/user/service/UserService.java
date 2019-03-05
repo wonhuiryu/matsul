@@ -23,8 +23,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public void signIn(final User user){
+        //SSO 통신
+
+        /*userRepository.findByEmailAndPassword(user.getEmail(), aes256Util.encrypt(user.getPassword()));*/
+
+    }
+
     @Transactional
-    public void sendMail(User user) throws GeneralSecurityException, UnsupportedEncodingException {
+    public void sendMail(final User user) throws GeneralSecurityException, UnsupportedEncodingException {
 
         //google smtp account
         final String username = "dbdnjsgml18@gmail.com";

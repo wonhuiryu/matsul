@@ -35,6 +35,15 @@ public class UserController {
         return "user/signIn";
     }
 
+    @PostMapping
+    public String signIn(@Valid @ModelAttribute User user, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "user/signIn";
+        }
+        userService.signIn(user);
+        return "home/home";
+    }
+
     @GetMapping("/email")
     public String formEmail(Model model){
         model.addAttribute("user", new User());
