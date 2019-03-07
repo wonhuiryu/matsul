@@ -1,12 +1,14 @@
 package com.wonhui.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by wonhuiryu on 2018-05-12.
@@ -18,6 +20,10 @@ public class LoggingInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         long startTime = System.currentTimeMillis();
+        HttpSession session = request.getSession();
+        for(String a: session.getValueNames()){
+            log.info("key="+a+"/value="+session.getAttribute(a));
+        }
         request.setAttribute("startTime", startTime);
         return true;
     }
@@ -33,6 +39,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
                                 HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
         long startTime = (Long) request.getAttribute("startTime");
+
         log.info("Request url: {} => taken: {}", request.getRequestURL().toString(), (System.currentTimeMillis() - startTime));
     }
 }
